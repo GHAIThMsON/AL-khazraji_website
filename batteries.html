@@ -1,54 +1,33 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batteries</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tire Shop - Batteries</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Tire Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="oils.html">Oils</a></li>
-                    <li class="nav-item"><a class="nav-link" href="batteries.html">Batteries</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <header class="main-header">
+        <div class="logo">
+            <h1><a href="index.html">Tire Shop</a></h1>
         </div>
-    </nav>
+        <nav class="navbar">
+            <ul>
+                <li><a href="tires.html">Tires</a></li>
+                <li><a href="batteries.html" class="active">Batteries</a></li>
+                <li><a href="oils.html">Oils</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Batteries</h1>
-        <p>Find high-performance batteries here!</p>
-    </div>
-
-    <!-- Batteries Section -->
-    <section id="batteries" class="container py-5">
-        <h2 class="text-center mb-4">Our Batteries</h2>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="battery1.jpg" alt="Battery 1"></div>
-                <div class="swiper-slide"><img src="battery2.jpg" alt="Battery 2"></div>
-                <div class="swiper-slide"><img src="battery3.jpg" alt="Battery 3"></div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
+    <section class="content">
+        <h2>Battery Options</h2>
+        <p>Find the best batteries for your vehicle needs!</p>
     </section>
 
-    <!-- Footer -->
     <footer>
-        &copy; 2024 Tire Shop. All rights reserved. | <a href="contact.html">Contact Us</a>
+        <p>© 2024 Tire Shop. All rights reserved. | <a href="contact.html">Contact Us</a></p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
