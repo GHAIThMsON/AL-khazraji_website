@@ -1,21 +1,19 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tire Shop - Welcome</title>
+    <title>Tire Shop - Tires</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Header Section -->
     <header class="main-header">
         <div class="logo">
             <h1><a href="index.html">Tire Shop</a></h1>
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="tires.html">Tires</a></li>
+                <li><a href="tires.html" class="active">Tires</a></li>
                 <li><a href="batteries.html">Batteries</a></li>
                 <li><a href="oils.html">Oils</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -23,13 +21,19 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Welcome to Tire Shop</h2>
-        <p>Quality Tires, Batteries, and Oils at Great Prices!</p>
+    <section class="content">
+        <div class="slider">
+            <button class="slide-left">&#9664;</button>
+            <div class="slides">
+                <img src="images/tire1.jpg" alt="Tire 1">
+                <img src="images/tire2.jpg" alt="Tire 2">
+                <img src="images/tire3.jpg" alt="Tire 3">
+            </div>
+            <button class="slide-right">&#9654;</button>
+        </div>
+        <p>Add a description here for tires.</p>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <p>© 2024 Tire Shop. All rights reserved. | <a href="contact.html">Contact Us</a></p>
     </footer>
