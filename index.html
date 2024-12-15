@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطارات الخزرجي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8e1;
+        }
+        nav {
+            background-color: black;
+            color: #ffc107;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: #ffc107;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        nav button:hover {
+            color: #ffeb3b;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .main-header {
+            text-align: center;
+            color: black;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: black;
+            color: #ffc107;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slider img {
+            width: 100%;
+            display: block;
+        }
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffc107;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: black;
+            color: #ffc107;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>اطارات الخزرجي</div>
+        <div>
+            <button onclick="navigateTo('main')">الرئيسية</button>
+            <button onclick="navigateTo('tires')">الإطارات</button>
+            <button onclick="navigateTo('batteries')">البطاريات</button>
+            <button onclick="navigateTo('oils')">الزيوت</button>
+            <button onclick="navigateTo('contact')">اتصل بنا</button>
+        </div>
+    </nav>
+
+    <main id="content" class="container">
+        <!-- Main content will be dynamically injected here -->
+    </main>
+
+    <footer>
+        <p>© 2024 اطارات الخزرجي. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const content = document.getElementById('content');
+
+        const pages = {
+            main: `
+                <h1 class="main-header">مرحبًا بكم في اطارات الخزرجي</h1>
+                <p class="main-header">وجهتك الموثوقة للإطارات والبطاريات والزيوت عالية الجودة</p>
+                <div class="grid">
+                    <div class="card">تشكيلة واسعة</div>
+                    <div class="card">تركيب احترافي</div>
+                    <div class="card">دعم فني</div>
+                </div>
+            `,
+            tires: `
+                <h1 class="main-header">معرض الإطارات</h1>
+                <div class="slider">
+                    <img id="slider-img" src="https://via.placeholder.com/800x400?text=Tire+1" alt="Tire 1">
+                    <div class="slider-controls">
+                        <button onclick="prevSlide('tires')">←</button>
+                        <button onclick="nextSlide('tires')">→</button>
+                    </div>
+                </div>
+            `,
+            batteries: `
+                <h1 class="main-header">معرض البطاريات</h1>
+                <div class="slider">
+                    <img id="slider-img" src="https://via.placeholder.com/800x400?text=Battery+1" alt="Battery 1">
+                    <div class="slider-controls">
+                        <button onclick="prevSlide('batteries')">←</button>
+                        <button onclick="nextSlide('batteries')">→</button>
+                    </div>
+                </div>
+            `,
+            oils: `
+                <h1 class="main-header">معرض الزيوت</h1>
+                <div class="slider">
+                    <img id="slider-img" src="https://via.placeholder.com/800x400?text=Oil+1" alt="Oil 1">
+                    <div class="slider-controls">
+                        <button onclick="prevSlide('oils')">←</button>
+                        <button onclick="nextSlide('oils')">→</button>
+                    </div>
+                </div>
+            `,
+            contact: `
+                <h1 class="main-header">اتصل بنا</h1>
+                <div class="grid">
+                    <div class="card">رقم الهاتف: 966-55-123-4567</div>
+                    <div class="card">البريد الإلكتروني: info@alkhazraji.com</div>
+                    <div class="card">العنوان: الرياض، المملكة العربية السعودية</div>
+                </div>
+            `,
+        };
+
+        let currentSlide = 0;
+        const images = {
+            tires: [
+                "https://via.placeholder.com/800x400?text=Tire+1",
+                "https://via.placeholder.com/800x400?text=Tire+2",
+                "https://via.placeholder.com/800x400?text=Tire+3"
+            ],
+            batteries: [
+                "https://via.placeholder.com/800x400?text=Battery+1",
+                "https://via.placeholder.com/800x400?text=Battery+2",
+                "https://via.placeholder.com/800x400?text=Battery+3"
+            ],
+            oils: [
+                "https://via.placeholder.com/800x400?text=Oil+1",
+                "https://via.placeholder.com/800x400?text=Oil+2",
+                "https://via.placeholder.com/800x400?text=Oil+3"
+            ]
+        };
+
+        function navigateTo(page) {
+            content.innerHTML = pages[page];
+            currentSlide = 0;
+        }
+
+        function nextSlide(page) {
+            const sliderImg = document.getElementById('slider-img');
+            currentSlide = (currentSlide + 1) % images[page].length;
+            sliderImg.src = images[page][currentSlide];
+        }
+
+        function prevSlide(page) {
+            const sliderImg = document.getElementById('slider-img');
+            currentSlide = (currentSlide - 1 + images[page].length) % images[page].length;
+            sliderImg.src = images[page][currentSlide];
+        }
+
+        navigateTo('main');
+    </script>
+</body>
+</html>
